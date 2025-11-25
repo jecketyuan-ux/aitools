@@ -1,8 +1,8 @@
-# PlayEdu Go 版本 - 设计文档
+# EduFlow 版本 - 设计文档
 
 ## 1. 项目概述
 
-PlayEdu Go 版本是基于原 PlayEdu (Java + Spring Boot) 的完整功能重构实现，使用 Go 语言开发的企业级在线培训平台。
+EduFlow 版本是基于原 EduFlow (Java + Spring Boot) 的完整功能重构实现，使用 Go 语言开发的企业级在线培训平台。
 
 ### 1.1 核心功能
 
@@ -93,7 +93,7 @@ PlayEdu Go 版本是基于原 PlayEdu (Java + Spring Boot) 的完整功能重构
 ### 2.2 项目目录结构
 
 ```
-playedu-go/
+eduflow-go/
 ├── cmd/
 │   └── api/
 │       └── main.go                 # 应用入口
@@ -1304,7 +1304,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: playedu
+      MYSQL_DATABASE: eduflow
     volumes:
       - mysql_data:/var/lib/mysql
       - ./migrations:/docker-entrypoint-initdb.d
@@ -1341,7 +1341,7 @@ services:
     environment:
       DB_HOST: mysql
       DB_PORT: 3306
-      DB_NAME: playedu
+      DB_NAME: eduflow
       DB_USER: root
       DB_PASSWORD: root_password
       REDIS_HOST: redis
@@ -1377,16 +1377,16 @@ volumes:
 
 #### Nginx 配置示例
 ```nginx
-upstream playedu_api {
+upstream eduflow_api {
     server 127.0.0.1:8080;
 }
 
 server {
     listen 80;
-    server_name api.playedu.com;
+    server_name api.eduflow.com;
     
     location / {
-        proxy_pass http://playedu_api;
+        proxy_pass http://eduflow_api;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -1539,6 +1539,6 @@ server {
 
 ## 11. 总结
 
-PlayEdu Go 版本是一个功能完整、架构清晰、易于扩展的企业级在线培训平台。采用 Go 语言开发，具有高性能、高并发的特点。通过模块化设计，各功能模块职责清晰，便于维护和扩展。
+EduFlow 版本是一个功能完整、架构清晰、易于扩展的企业级在线培训平台。采用 Go 语言开发，具有高性能、高并发的特点。通过模块化设计，各功能模块职责清晰，便于维护和扩展。
 
 本设计文档涵盖了系统架构、数据库设计、API 接口、核心功能实现、部署方案等各个方面，为后续开发提供了完整的指导。

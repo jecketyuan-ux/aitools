@@ -2,9 +2,9 @@ package backend
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/playedu/playedu-go/internal/pkg/response"
-	"github.com/playedu/playedu-go/internal/service"
-	"github.com/playedu/playedu-go/pkg/constants"
+	"github.com/eduflow/eduflow/internal/pkg/response"
+	"github.com/eduflow/eduflow/internal/service"
+	"github.com/eduflow/eduflow/pkg/constants"
 )
 
 type AuthHandler struct {

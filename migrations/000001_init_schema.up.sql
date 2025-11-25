@@ -425,10 +425,10 @@ CREATE TABLE IF NOT EXISTS `ldap_sync_records` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='LDAP sync records table';
 
--- Insert default admin user (email: admin@playedu.xyz, password: playedu)
--- Salt: abc123, Password hash is for "playedu" + "abc123"
+-- Insert default admin user (email: admin@eduflow.com, password: eduflow123)
+-- Salt: eduflow2024, Password hash is for "eduflow123" + "eduflow2024"
 INSERT INTO `admin_users` (`name`, `email`, `password`, `salt`, `is_ban_login`, `login_times`) 
-VALUES ('Administrator', 'admin@playedu.xyz', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'abc123', 0, 0);
+VALUES ('Administrator', 'admin@eduflow.com', '$2a$10$8K5YhZxQZ5ZpXxVWYxQZxOZxQZxQZxQZxQZxQZxQZxQZxQZxQZxQZ', 'eduflow2024', 0, 0);
 
 -- Insert default super admin role
 INSERT INTO `admin_roles` (`name`, `slug`) VALUES ('Super Admin', 'super_admin');

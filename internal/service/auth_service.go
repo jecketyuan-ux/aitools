@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/playedu/playedu-go/internal/domain"
-	"github.com/playedu/playedu-go/internal/pkg/crypto"
-	"github.com/playedu/playedu-go/internal/pkg/jwt"
-	"github.com/playedu/playedu-go/internal/repository"
-	"github.com/playedu/playedu-go/pkg/constants"
+	"github.com/eduflow/eduflow/internal/domain"
+	"github.com/eduflow/eduflow/internal/pkg/crypto"
+	"github.com/eduflow/eduflow/internal/pkg/jwt"
+	"github.com/eduflow/eduflow/internal/repository"
+	"github.com/eduflow/eduflow/pkg/constants"
 	"github.com/redis/go-redis/v9"
 )
 

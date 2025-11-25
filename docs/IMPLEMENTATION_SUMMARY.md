@@ -1,8 +1,8 @@
-# PlayEdu Go 实现总结
+# EduFlow 实现总结
 
 ## 项目概述
 
-本项目是对 PlayEdu (Java + Spring Boot) 平台的完整 Go 语言重构，实现了企业级在线培训平台的所有核心功能。
+本项目是对 EduFlow (Java + Spring Boot) 平台的完整 Go 语言重构，实现了企业级在线培训平台的所有核心功能。
 
 ## 已实现功能
 
@@ -134,7 +134,7 @@
    - 依赖注入，低耦合
 
 2. **完整的功能实现**
-   - 覆盖原 PlayEdu 项目的核心功能
+   - 覆盖原 EduFlow 项目的核心功能
    - 用户、课程、资源全流程管理
    - 前后台分离的 API 设计
 
@@ -197,7 +197,7 @@
 ```bash
 # 1. 克隆项目
 git clone <repository>
-cd playedu-go
+cd eduflow-go
 
 # 2. 安装依赖
 go mod download
@@ -224,10 +224,10 @@ docker-compose logs -f api
 make build
 
 # 部署到服务器
-scp playedu user@server:/opt/playedu/
+scp eduflow user@server:/opt/eduflow/
 
 # 配置 systemd 服务
-sudo systemctl start playedu
+sudo systemctl start eduflow
 ```
 
 ## 性能指标
@@ -246,7 +246,7 @@ sudo systemctl start playedu
 
 ## 总结
 
-本项目成功实现了 PlayEdu 平台的 Go 语言重构，包含：
+本项目成功实现了 EduFlow 平台的 Go 语言重构，包含：
 - ✅ 完整的数据模型和数据库设计
 - ✅ 清晰的分层架构
 - ✅ 核心业务功能实现

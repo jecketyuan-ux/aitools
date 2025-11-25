@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/playedu/playedu-go/internal/pkg/response"
+	"github.com/eduflow/eduflow/internal/pkg/response"
 	"github.com/redis/go-redis/v9"
 )
 

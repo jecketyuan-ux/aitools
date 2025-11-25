@@ -6,10 +6,10 @@ import (
 	"mime/multipart"
 	"path/filepath"
 
-	"github.com/playedu/playedu-go/internal/domain"
-	"github.com/playedu/playedu-go/internal/pkg/storage"
-	"github.com/playedu/playedu-go/internal/repository"
-	"github.com/playedu/playedu-go/pkg/constants"
+	"github.com/eduflow/eduflow/internal/domain"
+	"github.com/eduflow/eduflow/internal/pkg/storage"
+	"github.com/eduflow/eduflow/internal/repository"
+	"github.com/eduflow/eduflow/pkg/constants"
 	"github.com/redis/go-redis/v9"
 )
 

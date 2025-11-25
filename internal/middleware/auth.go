@@ -4,9 +4,9 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/playedu/playedu-go/internal/pkg/jwt"
-	"github.com/playedu/playedu-go/internal/pkg/response"
-	"github.com/playedu/playedu-go/pkg/constants"
+	"github.com/eduflow/eduflow/internal/pkg/jwt"
+	"github.com/eduflow/eduflow/internal/pkg/response"
+	"github.com/eduflow/eduflow/pkg/constants"
 	"github.com/redis/go-redis/v9"
 )
 

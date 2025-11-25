@@ -4,10 +4,10 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/playedu/playedu-go/internal/domain"
-	"github.com/playedu/playedu-go/internal/pkg/response"
-	"github.com/playedu/playedu-go/internal/service"
-	"github.com/playedu/playedu-go/pkg/utils"
+	"github.com/eduflow/eduflow/internal/domain"
+	"github.com/eduflow/eduflow/internal/pkg/response"
+	"github.com/eduflow/eduflow/internal/service"
+	"github.com/eduflow/eduflow/pkg/utils"
 )
 
 type CourseHandler struct {

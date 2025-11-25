@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/playedu/playedu-go/pkg/constants"
+	"github.com/eduflow/eduflow/pkg/constants"
 )
 
 func GetPageParams(pageStr, sizeStr string) (int, int) {

@@ -1,6 +1,6 @@
-# PlayEdu Go - 企业培训平台
+# EduFlow - 企业培训平台
 
-PlayEdu Go 是一个功能完整的企业级在线培训平台，使用 Go 语言重构实现。基于原 PlayEdu (Java + Spring Boot) 项目的完整功能设计。
+EduFlow 是一个功能完整的企业级在线培训平台，使用 Go 语言开发，提供完整的企业培训解决方案。
 
 ## 特性
 
@@ -41,8 +41,8 @@ PlayEdu Go 是一个功能完整的企业级在线培训平台，使用 Go 语�
 1. 克隆项目
 
 ```bash
-git clone https://github.com/playedu/playedu-go.git
-cd playedu-go
+git clone https://github.com/eduflow/eduflow.git
+cd eduflow
 ```
 
 2. 安装依赖
@@ -76,8 +76,8 @@ go run cmd/api/main.go
 或使用编译后的二进制文件：
 
 ```bash
-go build -o playedu cmd/api/main.go
-./playedu
+go build -o eduflow cmd/api/main.go
+./eduflow
 ```
 
 应用将在 http://localhost:8080 启动。
@@ -100,8 +100,8 @@ docker-compose up -d
 
 ### 默认管理员账号
 
-- 邮箱: `admin@playedu.xyz`
-- 密码: `playedu`
+- 邮箱: `admin@eduflow.com`
+- 密码: `eduflow123`
 
 ### 后台管理 API (Backend)
 
@@ -177,7 +177,7 @@ docker-compose up -d
 ## 项目结构
 
 ```
-playedu-go/
+eduflow/
 ├── cmd/
 │   └── api/                    # 应用入口
 ├── internal/
@@ -253,7 +253,7 @@ database:
   port: 3306             # 数据库端口
   user: root             # 数据库用户
   password: password     # 数据库密码
-  dbname: playedu        # 数据库名称
+  dbname: eduflow        # 数据库名称
 
 redis:
   host: localhost        # Redis主机
@@ -269,7 +269,7 @@ minio:
   endpoint: localhost:9000    # MinIO地址
   access_key_id: minioadmin  # 访问密钥
   secret_access_key: minioadmin  # 密钥
-  bucket_name: playedu       # 存储桶名称
+  bucket_name: eduflow       # 存储桶名称
 
 rate_limit:
   duration: 60          # 限流时间窗口(秒)
@@ -283,23 +283,23 @@ rate_limit:
 1. 编译生产版本
 
 ```bash
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o playedu cmd/api/main.go
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o eduflow cmd/api/main.go
 ```
 
 2. 配置 systemd 服务
 
-创建 `/etc/systemd/system/playedu.service`:
+创建 `/etc/systemd/system/eduflow.service`:
 
 ```ini
 [Unit]
-Description=PlayEdu API Service
+Description=EduFlow API Service
 After=network.target
 
 [Service]
 Type=simple
-User=playedu
-WorkingDirectory=/opt/playedu
-ExecStart=/opt/playedu/playedu
+User=eduflow
+WorkingDirectory=/opt/eduflow
+ExecStart=/opt/eduflow/eduflow
 Restart=on-failure
 
 [Install]
@@ -310,23 +310,23 @@ WantedBy=multi-user.target
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable playedu
-sudo systemctl start playedu
+sudo systemctl enable eduflow
+sudo systemctl start eduflow
 ```
 
 ### Nginx 反向代理
 
 ```nginx
-upstream playedu_api {
+upstream eduflow_api {
     server 127.0.0.1:8080;
 }
 
 server {
     listen 80;
-    server_name api.playedu.com;
+    server_name api.eduflow.com;
     
     location / {
-        proxy_pass http://playedu_api;
+        proxy_pass http://eduflow_api;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -348,14 +348,10 @@ server {
 
 本项目基于 Apache License 2.0 许可证开源。详见 [LICENSE](LICENSE) 文件。
 
-## 致谢
-
-本项目参考了 [PlayEdu](https://github.com/PlayEdu/PlayEdu) 的设计和功能。
-
 ## 联系方式
 
-- 项目主页: https://github.com/playedu/playedu-go
-- 问题反馈: https://github.com/playedu/playedu-go/issues
+- 项目主页: https://github.com/eduflow/eduflow
+- 问题反馈: https://github.com/eduflow/eduflow/issues
 
 ## 更新日志
 

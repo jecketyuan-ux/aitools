@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/playedu/playedu-go/internal/domain"
-	"github.com/playedu/playedu-go/internal/repository"
+	"github.com/eduflow/eduflow/internal/domain"
+	"github.com/eduflow/eduflow/internal/repository"
 	"github.com/redis/go-redis/v9"
 )
 

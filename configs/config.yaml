@@ -9,7 +9,7 @@ database:
   port: 3306
   user: root
   password: password
-  dbname: playedu
+  dbname: eduflow
   max_idle_conns: 10
   max_open_conns: 100
   conn_max_lifetime: 3600s
@@ -21,7 +21,7 @@ redis:
   db: 0
 
 jwt:
-  secret: playedu-secret-key-change-in-production
+  secret: eduflow-secret-key-change-in-production
   expire_time: 360h  # 15 days
 
 minio:
@@ -29,7 +29,7 @@ minio:
   access_key_id: minioadmin
   secret_access_key: minioadmin
   use_ssl: false
-  bucket_name: playedu
+  bucket_name: eduflow
 
 ldap:
   enabled: false
@@ -47,7 +47,7 @@ rate_limit:
 
 log:
   level: info
-  file_path: logs/playedu.log
+  file_path: logs/eduflow.log
   max_size: 100
   max_backups: 10
   max_age: 30

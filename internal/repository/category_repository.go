@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/playedu/playedu-go/internal/domain"
+	"github.com/eduflow/eduflow/internal/domain"
 	"gorm.io/gorm"
 )
 

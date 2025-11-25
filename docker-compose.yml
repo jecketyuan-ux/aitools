@@ -3,19 +3,19 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8.0
-    container_name: playedu-mysql
+    container_name: eduflow-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: playedu123
-      MYSQL_DATABASE: playedu
-      MYSQL_USER: playedu
-      MYSQL_PASSWORD: playedu123
+      MYSQL_ROOT_PASSWORD: eduflow123
+      MYSQL_DATABASE: eduflow
+      MYSQL_USER: eduflow
+      MYSQL_PASSWORD: eduflow123
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./migrations/000001_init_schema.up.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - playedu-network
+      - eduflow-network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
@@ -23,13 +23,13 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: playedu-redis
+    container_name: eduflow-redis
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
     networks:
-      - playedu-network
+      - eduflow-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -38,7 +38,7 @@ services:
 
   minio:
     image: minio/minio:latest
-    container_name: playedu-minio
+    container_name: eduflow-minio
     command: server /data --console-address ":9001"
     environment:
       MINIO_ROOT_USER: minioadmin
@@ -49,7 +49,7 @@ services:
     volumes:
       - minio_data:/data
     networks:
-      - playedu-network
+      - eduflow-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
@@ -60,15 +60,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: playedu-api
+    container_name: eduflow-api
     ports:
       - "8080:8080"
     environment:
       DB_HOST: mysql
       DB_PORT: 3306
-      DB_NAME: playedu
-      DB_USER: playedu
-      DB_PASSWORD: playedu123
+      DB_NAME: eduflow
+      DB_USER: eduflow
+      DB_PASSWORD: eduflow123
       REDIS_HOST: redis
       REDIS_PORT: 6379
       MINIO_ENDPOINT: minio:9000
@@ -82,7 +82,7 @@ services:
       minio:
         condition: service_healthy
     networks:
-      - playedu-network
+      - eduflow-network
     restart: unless-stopped
 
 volumes:
@@ -91,5 +91,5 @@ volumes:
   minio_data:
 
 networks:
-  playedu-network:
+  eduflow-network:
     driver: bridge

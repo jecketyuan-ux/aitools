@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/playedu/playedu-go/pkg/constants"
+	"github.com/eduflow/eduflow/pkg/constants"
 )
 
 type Response struct {
